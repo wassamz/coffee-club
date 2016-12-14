@@ -1,0 +1,9 @@
+<h3>List People</h3>
+<div id="container">
+	<div id="content-people">
+		<div *ngFor="let person of people | async">
+			<app-list-item-person [person]="person" class="item" (removePersonEmit)="removePerson($event)">
+			</app-list-item-person>
+		</div>
+	</div>
+</div>
