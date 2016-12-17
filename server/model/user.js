@@ -75,6 +75,10 @@ User.statics.findUserByIdAndUserName = function(id, userName, callback) {
     }, callback);
 };
 
+/*User.statics.findAll = function (user, callback) {
+    user.find(callback);
+}*/
+
 var user = mongoose.model('user', User);
 
 /** export schema */
