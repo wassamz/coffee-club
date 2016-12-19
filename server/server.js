@@ -1,12 +1,12 @@
 
 var Hapi = require('hapi'),
-    Routes = require('./routes'),
     Db = require('./config/db'),
     Moment = require('moment'),
     Config = require('./config/config');
 
 var User      = require('./controller/user');
 var PairUp    = require('./controller/pair-up');
+var Member    = require('./controller/member');
 var Static    = require('./static');
 
 
@@ -42,12 +42,14 @@ server.register([{
 
 });
 
+//server.route({ method: 'GET',  path: '/{somethingss*}', config: Static.get });
 server.route({ method: 'POST', path: '/user', config: User.create});
 server.route({ method: 'POST', path: '/login', config: User.login});
 server.route({ method: 'POST', path: '/forgotPassword', config: User.forgotPassword});
 server.route({ method: 'POST', path: '/verifyEmail', config: User.verifyEmail});
 server.route({ method: 'POST', path: '/resendVerificationEmail', config: User.resendVerificationEmail});
 server.route({ method: 'GET', path: '/pairNow', config: PairUp.pairNow});
+server.route({ method: 'POST', path: '/createMember', config: Member.create});
 
 server.start((err)=> {
     if(err) {

@@ -34,12 +34,12 @@ var User = new Schema({
   */
     scope: {
         type: String,
-        enum: ['Customer'],
+        enum: ['User'],
         required: true
     },
 
     /** 
-      propertyId. It can only contain string.
+      propertyId. It can only contain Boolean.
     */
     isVerified: {
         type: Boolean,

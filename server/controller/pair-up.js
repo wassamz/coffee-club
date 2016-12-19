@@ -1,5 +1,5 @@
 //query the database for a list of users
-var User = require('../model/user').User,
+var Member = require('../model/member').Member,
     Boom = require('boom');
 
 exports.pairNow = {
@@ -15,7 +15,7 @@ exports.pairAndEmail =
 
 //randomize the list of pairs
 function pairUp() {
-    User.find(function (err, people) {
+    Member.find(function (err, people) {
         if (err) {
             //return reply(Boom.wrap(err, 'Internal MongoDB error'));
             console.log(Boom.wrap(err, 'Internal MongoDB error'));
