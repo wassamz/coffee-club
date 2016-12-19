@@ -56,6 +56,12 @@ Member.statics.findMemberByIdAndMemberName = function(id, member, callback) {
     }, callback);
 };
 
+Member.statics.deleteMember = function(requestData, callback) {
+    member.remove({
+        memberEmail: requestData.memberEmail
+    }, callback);
+};
+
 /*User.statics.findAll = function (user, callback) {
     user.find(callback);
 }*/

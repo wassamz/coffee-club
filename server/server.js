@@ -50,6 +50,7 @@ server.route({ method: 'POST', path: '/verifyEmail', config: User.verifyEmail});
 server.route({ method: 'POST', path: '/resendVerificationEmail', config: User.resendVerificationEmail});
 server.route({ method: 'GET', path: '/pairNow', config: PairUp.pairNow});
 server.route({ method: 'POST', path: '/createMember', config: Member.create});
+server.route({ method: 'POST', path: '/removeMember', config: Member.remove});
 
 server.start((err)=> {
     if(err) {
