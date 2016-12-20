@@ -35,13 +35,13 @@ Member.plugin(autoIncrement.plugin, {
     field: '_id'
 });
 
-Member.statics.saveMember = function(requestData, callback) {
+Member.statics.createMember = function(requestData, callback) {
     this.create(requestData, callback);
 };
 
-Member.statics.updateMember = function(member, callback) {
+/*Member.statics.updateMember = function(member, callback) {
     member.save(callback);
-};
+};*/
 
 Member.statics.findMember = function(member, callback) {
     this.findOne({
@@ -56,15 +56,23 @@ Member.statics.findMemberByIdAndMemberName = function(id, member, callback) {
     }, callback);
 };
 
-Member.statics.deleteMember = function(requestData, callback) {
+Member.statics.removeMember = function(requestData, callback) {
     member.remove({
         memberEmail: requestData.memberEmail
     }, callback);
 };
 
-/*User.statics.findAll = function (user, callback) {
-    user.find(callback);
-}*/
+Member.statics.updateMember = function(requestData, callback) {
+    this.update(
+        {
+            _id: requestData.id
+        },
+        {
+            memberName: requestData.newMemberName,
+            memberEmail: requestData.newMemberEmail
+         }
+    , callback);
+};
 
 var member = mongoose.model('member', Member);
 

@@ -10,7 +10,7 @@ exports.create = {
         }
     },
     handler: function(request, reply) {
-        Member.saveMember(request.payload, function(err, member) {
+        Member.createMember(request.payload, function(err, member) {
             if (!err) {
                 reply("SUCCESS: Member Saved");
             } else {
@@ -28,9 +28,29 @@ exports.remove = {
     },
     handler: function(request, reply) {
         
-        Member.deleteMember(request.payload, function(err, member) {
+        Member.removeMember(request.payload, function(err, member) {
             if (!err) {
                 reply("SUCCESS: Member Removed");
+            } else {
+                reply(Boom.forbidden(err)); // HTTP 403
+            }
+        });
+    }
+};
+
+exports.update = {
+    validate: {
+        payload: {
+            id: Joi.number().required(),
+            newMemberName: Joi.string().required(),
+            newMemberEmail: Joi.string().email().required()
+        }
+    },
+    handler: function(request, reply) {
+        
+        Member.updateMember(request.payload, function(err, member) {
+            if (!err) {
+                reply("SUCCESS: Member Updated");
             } else {
                 reply(Boom.forbidden(err)); // HTTP 403
             }
