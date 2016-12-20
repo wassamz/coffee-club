@@ -22,7 +22,7 @@ var Member = new Schema({
     },
     /** 
       memberEmail. It can only contain valid string, is required and indexed.
-    */    
+    */
     memberEmail: {
         type: String,
         unique: true,
@@ -35,7 +35,7 @@ Member.plugin(autoIncrement.plugin, {
     field: '_id'
 });
 
-Member.statics.createMember = function(requestData, callback) {
+Member.statics.createMember = function (requestData, callback) {
     this.create(requestData, callback);
 };
 
@@ -43,26 +43,26 @@ Member.statics.createMember = function(requestData, callback) {
     member.save(callback);
 };*/
 
-Member.statics.findMember = function(member, callback) {
+Member.statics.findMember = function (member, callback) {
     this.findOne({
         member: member
     }, callback);
 };
 
-Member.statics.findMemberByIdAndMemberName = function(id, member, callback) {
+Member.statics.findMemberByIdAndMemberName = function (id, member, callback) {
     this.findOne({
         member: member,
         _id: id
     }, callback);
 };
 
-Member.statics.removeMember = function(requestData, callback) {
+Member.statics.removeMember = function (requestData, callback) {
     member.remove({
         memberEmail: requestData.memberEmail
     }, callback);
 };
 
-Member.statics.updateMember = function(requestData, callback) {
+Member.statics.updateMember = function (requestData, callback) {
     this.update(
         {
             _id: requestData.id
@@ -70,12 +70,12 @@ Member.statics.updateMember = function(requestData, callback) {
         {
             memberName: requestData.newMemberName,
             memberEmail: requestData.newMemberEmail
-         }
-    , callback);
+        }
+        , callback);
 };
 
-Member.statics.getMembers = function(members, callback) {
-    this.find({}, callback); 
+Member.statics.getMembers = function (members, callback) {
+    this.find({}, callback);
 };
 
 var member = mongoose.model('member', Member);

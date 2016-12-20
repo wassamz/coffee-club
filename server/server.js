@@ -4,10 +4,10 @@ var Hapi = require('hapi'),
     Moment = require('moment'),
     Config = require('./config/config');
 
-var User      = require('./controller/user');
-var PairUp    = require('./controller/pair-up');
-var Member    = require('./controller/member');
-var Static    = require('./static');
+var User = require('./controller/user');
+var PairUp = require('./controller/pair-up');
+var Member = require('./controller/member');
+var Static = require('./static');
 
 
 var Path = require('path');
@@ -21,7 +21,7 @@ var ttl = app.config.key.tokenExpiry;
 
 var server = new Hapi.Server();
 //server.connection({ port: app.config.server.port });
-server.connection({ host: 'localhost', port: app.config.server.port, routes: { cors:true}});
+server.connection({ host: 'localhost', port: app.config.server.port, routes: { cors: true } });
 // Validate function to be injected 
 var validate = function (token, callback) {
     // Check token timestamp
@@ -43,19 +43,19 @@ server.register([{
 });
 
 //server.route({ method: 'GET',  path: '/{somethingss*}', config: Static.get });
-server.route({ method: 'POST', path: '/user', config: User.create});
-server.route({ method: 'POST', path: '/login', config: User.login});
-server.route({ method: 'POST', path: '/forgotPassword', config: User.forgotPassword});
-server.route({ method: 'POST', path: '/verifyEmail', config: User.verifyEmail});
-server.route({ method: 'POST', path: '/resendVerificationEmail', config: User.resendVerificationEmail});
-server.route({ method: 'GET', path: '/pairNow', config: PairUp.pairNow});
-server.route({ method: 'POST', path: '/createMember', config: Member.create});
-server.route({ method: 'POST', path: '/removeMember', config: Member.remove});
-server.route({ method: 'POST', path: '/updateMember', config: Member.update});
-server.route({ method: 'POST', path: '/listMembers', config: Member.list});
+server.route({ method: 'POST', path: '/user', config: User.create });
+server.route({ method: 'POST', path: '/login', config: User.login });
+server.route({ method: 'POST', path: '/forgotPassword', config: User.forgotPassword });
+server.route({ method: 'POST', path: '/verifyEmail', config: User.verifyEmail });
+server.route({ method: 'POST', path: '/resendVerificationEmail', config: User.resendVerificationEmail });
+server.route({ method: 'GET', path: '/pairNow', config: PairUp.pairNow });
+server.route({ method: 'POST', path: '/createMember', config: Member.create });
+server.route({ method: 'POST', path: '/removeMember', config: Member.remove });
+server.route({ method: 'POST', path: '/updateMember', config: Member.update });
+server.route({ method: 'POST', path: '/listMembers', config: Member.list });
 
-server.start((err)=> {
-    if(err) {
+server.start((err) => {
+    if (err) {
         throw err;
     }
     console.log('Server started ', server.info.uri);

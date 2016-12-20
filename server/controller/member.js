@@ -9,8 +9,8 @@ exports.create = {
             memberEmail: Joi.string().email().required()
         }
     },
-    handler: function(request, reply) {
-        Member.createMember(request.payload, function(err, member) {
+    handler: function (request, reply) {
+        Member.createMember(request.payload, function (err, member) {
             if (!err) {
                 reply("SUCCESS: Member Saved");
             } else {
@@ -26,9 +26,9 @@ exports.remove = {
             memberEmail: Joi.string().email().required()
         }
     },
-    handler: function(request, reply) {
-        
-        Member.removeMember(request.payload, function(err, member) {
+    handler: function (request, reply) {
+
+        Member.removeMember(request.payload, function (err, member) {
             if (!err) {
                 reply("SUCCESS: Member Removed");
             } else {
@@ -46,9 +46,9 @@ exports.update = {
             newMemberEmail: Joi.string().email().required()
         }
     },
-    handler: function(request, reply) {
-        
-        Member.updateMember(request.payload, function(err, member) {
+    handler: function (request, reply) {
+
+        Member.updateMember(request.payload, function (err, member) {
             if (!err) {
                 reply("SUCCESS: Member Updated");
             } else {
@@ -59,11 +59,11 @@ exports.update = {
 };
 
 exports.list = {
-    handler: function(request, reply) {
-        Member.getMembers(request, function(err, members){
-            console.log("controller::"+members);
+    handler: function (request, reply) {
+        Member.getMembers(request, function (err, members) {
+            console.log("controller::" + members);
             reply(members);
         })
-        
+
     }
 };
