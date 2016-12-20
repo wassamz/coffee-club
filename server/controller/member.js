@@ -57,3 +57,13 @@ exports.update = {
         });
     }
 };
+
+exports.list = {
+    handler: function(request, reply) {
+        Member.getMembers(request, function(err, members){
+            console.log("controller::"+members);
+            reply(members);
+        })
+        
+    }
+};

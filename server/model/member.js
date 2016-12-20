@@ -74,6 +74,10 @@ Member.statics.updateMember = function(requestData, callback) {
     , callback);
 };
 
+Member.statics.getMembers = function(members, callback) {
+    this.find({}, callback); 
+};
+
 var member = mongoose.model('member', Member);
 
 /** export schema */

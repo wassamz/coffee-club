@@ -52,6 +52,7 @@ server.route({ method: 'GET', path: '/pairNow', config: PairUp.pairNow});
 server.route({ method: 'POST', path: '/createMember', config: Member.create});
 server.route({ method: 'POST', path: '/removeMember', config: Member.remove});
 server.route({ method: 'POST', path: '/updateMember', config: Member.update});
+server.route({ method: 'POST', path: '/listMembers', config: Member.list});
 
 server.start((err)=> {
     if(err) {
