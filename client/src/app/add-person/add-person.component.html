@@ -1,6 +1,6 @@
 <h3>Add Person</h3>
 <div class="ui input">
-	<input type="text" id="firstNameField" [(ngModel)]="addFirstName" placeholder="First Name">
-	<input type="text" id="lastNameField" [(ngModel)]="addLastName" placeholder="Last Name">
-	<button class="ui button" (click)="addPerson(addFirstName, addLastName)">Add</button>
+	<input type="text" id="nameField" [(ngModel)]="addName" placeholder="Name">
+	<input type="text" id="emailField" [(ngModel)]="addEmail" placeholder="Email">
+	<button class="ui button" (click)="addPerson(addName, addEmail)">Add</button>
 </div>

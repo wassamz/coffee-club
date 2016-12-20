@@ -17,9 +17,9 @@ export class AddPersonComponent implements OnInit {
 
   ngOnInit() {
   }
-  addPerson(first: string, last: string) {
+  addPerson(memberName: string, memberEmail: string) {
     console.log('Add Person Component');
-    this.peopleService.addPerson(new Person(first, last));
+    this.peopleService.addPerson(new Person(0,memberName, memberEmail,0));
   }
 
 }
