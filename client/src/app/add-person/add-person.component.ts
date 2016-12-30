@@ -19,7 +19,7 @@ export class AddPersonComponent implements OnInit {
   }
   addPerson(memberName: string, memberEmail: string) {
     console.log('Add Person Component');
-    this.peopleService.addPerson(new Person(0,memberName, memberEmail,0));
+    this.peopleService.addPerson(new Person(null,memberName, memberEmail));
   }
 
 }

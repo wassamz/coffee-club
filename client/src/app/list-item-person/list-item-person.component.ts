@@ -12,6 +12,7 @@ export class ListItemPersonComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("list-item: "+ this.person.memberName);
   }
 
   removeSelectedPerson(): void {

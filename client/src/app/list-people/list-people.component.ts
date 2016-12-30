@@ -18,7 +18,9 @@ export class ListPeopleComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.people = this.peopleService.people;
     this.peopleService.loadAll();
+    console.log("People to load: " + JSON.stringify(this.people));
   }
 
   removePerson(person: Person) {
