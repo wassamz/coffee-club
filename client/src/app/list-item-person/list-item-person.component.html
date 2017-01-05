@@ -1,4 +1,5 @@
         <div id="name">
-            {{person.memberName}} {{person.memberEmail}}
+            <input type="text" value="{{person.memberName}}"> <input type="text" value="{{person.memberEmail}}">
+            <button class="ui button" (click)="updateSelectedPerson()">Update</button>
             <button class="ui button" (click)="removeSelectedPerson()">Remove</button>    
         </div>
