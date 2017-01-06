@@ -1,5 +1,7 @@
         <div id="name">
-            <input type="text" value="{{person.memberName}}"> <input type="text" value="{{person.memberEmail}}">
-            <button class="ui button" (click)="updateSelectedPerson()">Update</button>
+            <input type="hidden" [(ngModel)]="person._id">
+            <input type="text" [(ngModel)]="person.memberName"> 
+            <input type="text" [(ngModel)]="person.memberEmail">
+            <button class="ui button" (click)="updateSelectedPerson(person)">Update</button>
             <button class="ui button" (click)="removeSelectedPerson()">Remove</button>    
         </div>

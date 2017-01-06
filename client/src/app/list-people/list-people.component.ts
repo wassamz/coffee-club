@@ -23,7 +23,8 @@ export class ListPeopleComponent implements OnInit {
     console.log("People to load: " + JSON.stringify(this.people));
   }
   updatePerson(person: Person) {
-    console.log('Update person: ' + person.memberName);
+    console.log('Update person: ' + person.memberName +' id:'+ person._id);
+    this.peopleService.updatePerson(person);
   }
   removePerson(person: Person) {
     this.peopleService.removePerson(person);
