@@ -12,14 +12,14 @@ import { PeopleService } from '../people.service';
 export class AddPersonComponent implements OnInit {
 
   constructor(
-     public peopleService: PeopleService) {
+    public peopleService: PeopleService) {
   }
 
   ngOnInit() {
   }
   addPerson(memberName: string, memberEmail: string) {
     console.log('Add Person Component');
-    this.peopleService.addPerson(new Person(null,memberName, memberEmail));
+    this.peopleService.addPerson(new Person(null, memberName, memberEmail));
   }
 
 }

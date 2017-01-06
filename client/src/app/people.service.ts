@@ -29,7 +29,7 @@ export class PeopleService {
         this.http.post(`${this.baseUrl}/listMembers`, null).map(response => response.json()).subscribe(data => {
             this.dataStore.people = data;
             this._people.next(Object.assign({}, this.dataStore).people);
-            console.log("loadAll():: " + JSON.stringify(this.dataStore.people));
+            console.log('loadAll():: ' + JSON.stringify(this.dataStore.people));
         }, error => console.log('Could not load members.'));
         this.pushChanges();
     }
@@ -38,7 +38,10 @@ export class PeopleService {
         console.log('People Model> add Person....' + person.memberName);
 
         console.log('People Service> add:' + JSON.stringify(person));
-        this.http.post(`${this.baseUrl}/createMember`, {memberName: person.memberName, memberEmail: person.memberEmail}).map(response => response.json()).subscribe(data => {
+        this.http.post(`${this.baseUrl}/createMember`, {
+            memberName: person.memberName,
+            memberEmail: person.memberEmail
+        }).map(response => response.json()).subscribe(data => {
             this.dataStore.people = data;
             this._people.next(Object.assign({}, this.dataStore).people);
         }, error => console.log('Could not load members.'));
@@ -49,10 +52,10 @@ export class PeopleService {
         console.log('People Service> update:' + person.memberName);
 
         this.http.post(`${this.baseUrl}/updateMember`, {
-                id: person._id,
-                newMemberName: person.memberName, 
-                newMemberEmail: person.memberEmail
-            }).map(response => response.json()).subscribe(data => {
+            id: person._id,
+            newMemberName: person.memberName,
+            newMemberEmail: person.memberEmail
+        }).map(response => response.json()).subscribe(data => {
             this.dataStore.people = data;
             this._people.next(Object.assign({}, this.dataStore).people);
         }, error => console.log('Could not load members.'));
@@ -62,7 +65,9 @@ export class PeopleService {
     removePerson(person: Person) {
         console.log('People Service> remove:' + person.memberName);
 
-        this.http.post(`${this.baseUrl}/removeMember`, {memberEmail: person.memberEmail}).map(response => response.json()).subscribe(data => {
+        this.http.post(`${this.baseUrl}/removeMember`, {
+            memberEmail: person.memberEmail
+        }).map(response => response.json()).subscribe(data => {
             this.dataStore.people = data;
             this._people.next(Object.assign({}, this.dataStore).people);
         }, error => console.log('Could not load members.' + error));

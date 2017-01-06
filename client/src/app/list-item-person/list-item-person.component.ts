@@ -14,9 +14,9 @@ export class ListItemPersonComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("list-item: " + this.person.memberName);
+    console.log('list-item: ' + this.person.memberName);
   }
-  
+
   updateSelectedPerson(): void {
     console.log('update selected person:' + this.person.memberName);
     this.updatePersonEmit.next(this.person);
