@@ -8,10 +8,11 @@ import { ListItemPersonComponent } from './list-item-person/list-item-person.com
 import { AddPersonComponent } from './add-person/add-person.component';
 import { ListPeopleComponent } from './list-people/list-people.component';
 import { PeopleService } from './people.service';
+import { PairMembersComponent } from './pair-members/pair-members.component';
 
 @NgModule({
   declarations: [
-    AppComponent, ListItemPersonComponent, AddPersonComponent, ListPeopleComponent
+    AppComponent, ListItemPersonComponent, AddPersonComponent, ListPeopleComponent, PairMembersComponent
   ],
   imports: [
     BrowserModule,
