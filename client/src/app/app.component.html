@@ -1,3 +1,13 @@
 <H1>{{title}}</H1>
-<app-list-people></app-list-people>
-<app-add-person (addPersonEmit)="addPerson($event)"></app-add-person>
+<div class="ui two column doubling stackable grid container">
+  <div class="column">
+    <h2>People List</h2>
+    <app-list-people></app-list-people>
+    <app-add-person (addPersonEmit)="addPerson($event)"></app-add-person>
+  </div>
+    <div class="column">
+    <h2>Paired Members</h2>
+    <app-pair-members></app-pair-members>
+  </div>
+</div>
+
