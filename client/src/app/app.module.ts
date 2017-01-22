@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { SuiModule } from 'ng2-semantic-ui/ng2-semantic-ui';
 
 import { AppComponent} from './app.component';
 import { ListItemPersonComponent } from './list-item-person/list-item-person.component';
@@ -18,7 +19,8 @@ import { PairMembersComponent } from './pair-members/pair-members.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    SuiModule
   ],
   providers: [PeopleService],
   bootstrap: [AppComponent]

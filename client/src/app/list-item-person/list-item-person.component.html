@@ -1,7 +1,13 @@
-        <div id="name">
-            <input type="hidden" [(ngModel)]="person._id">
-            <input type="text" [(ngModel)]="person.memberName"> 
-            <input type="text" [(ngModel)]="person.memberEmail">
-            <button class="ui button" (click)="updateSelectedPerson(person)">Update</button>
-            <button class="ui button" (click)="removeSelectedPerson()">Remove</button>    
-        </div>
+<div class="ui three column grid">
+    <div class="ui input column">
+        <input type="hidden" [(ngModel)]="person._id">
+		<input type="text" [(ngModel)]="person.memberName">
+	</div>
+	<div class="ui input column">
+		<input type="text" [(ngModel)]="person.memberEmail">
+	</div>
+	<div class="column">
+        <button class="ui compact icon button" (click)="updateSelectedPerson(person)"><i class="checkmark icon"></i></button>
+		<button class="ui compact icon button" (click)="removeSelectedPerson()"><i class="remove circle icon"></i></button>
+	</div>
+</div>

@@ -4,6 +4,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
 import { environment } from './environments/environment';
 import { AppModule } from './app/';
+import { SuiModule } from 'ng2-semantic-ui/ng2-semantic-ui';
 
 if (environment.production) {
   enableProdMode();

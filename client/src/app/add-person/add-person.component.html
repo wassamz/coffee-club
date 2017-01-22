@@ -1,6 +1,14 @@
+<div class="container">
 <h3>Add Person</h3>
-<div class="ui input">
-	<input type="text" id="nameField" [(ngModel)]="addName" placeholder="Name">
-	<input type="text" id="emailField" [(ngModel)]="addEmail" placeholder="Email">
-	<button class="ui button" (click)="addPerson(addName, addEmail)">Add</button>
+<div class="ui three column grid">
+	<div class="ui input column">
+		<input type="text" id="nameField" [(ngModel)]="addName" placeholder="Name">
+	</div>
+	<div class="ui input column">
+		<input type="text" id="emailField" [(ngModel)]="addEmail" placeholder="Email">
+	</div>
+	<div class="ui input column">
+		<button class="ui button" (click)="addPerson(addName, addEmail)">Add</button>
+	</div>	
+</div>
 </div>

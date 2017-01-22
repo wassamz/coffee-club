@@ -1,7 +1,7 @@
 {
   "project": {
     "version": "1.0.0-beta.19-3",
-    "name": "coffee-club2"
+    "name": "coffee-club3"
   },
   "apps": [
     {
@@ -18,7 +18,8 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.css"
+        "styles/styles.css",
+        "styles/semantic.min.css"
       ],
       "scripts": [],
       "environments": {

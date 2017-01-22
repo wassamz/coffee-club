@@ -1,13 +1,18 @@
-<H1>{{title}}</H1>
-<div class="ui two column doubling stackable grid container">
-  <div class="column">
-    <h2>People List</h2>
-    <app-list-people></app-list-people>
-    <app-add-person (addPersonEmit)="addPerson($event)"></app-add-person>
-  </div>
-    <div class="column">
-    <h2>Paired Members</h2>
-    <app-pair-members></app-pair-members>
-  </div>
+<div class="ui container">
+<div class="header item borderless">
+    <h1 class="ui header">{{title}}</h1>
 </div>
-
+</div>
+<div class="ui two column doubling stackable grid container">
+	<div class="column">
+		<div class="ui raised container segment">
+            <app-list-people></app-list-people>
+            <app-add-person (addPersonEmit)="addPerson($event)"></app-add-person>
+		</div>
+	</div>
+	<div class="column">
+        <div class="ui raised container segment">
+            <app-pair-members></app-pair-members>
+        </div>
+	</div>
+</div>

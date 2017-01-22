@@ -1,9 +1,5 @@
-<div id="container"><p>
-  <button class="ui button" (click)="pairMembers()">Pair Members</button>
-</p>
-</div>
-
-  <!-- Output list of paired members -->
+<h2>Paired Members</h2>
+<!-- Output list of paired members -->
 <div id="container">
 	<div id="content-pairs">
 		<div *ngFor="let pair of pairings | async">
@@ -12,4 +8,9 @@
 			</app-list-item-person> -->
 		</div>
 	</div>
+</div>
+<div id="container">
+	<p>
+		<button class="ui button" (click)="pairMembers()">Pair Members</button>
+	</p>
 </div>
