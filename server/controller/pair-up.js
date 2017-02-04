@@ -1,4 +1,5 @@
-async = require("async");
+Config = require('../config/config');
+Common = require('./common');
 
 //query the database for a list of users
 var Member = require('../model/member').Member,
@@ -37,7 +38,7 @@ exports.pairAndEmail =
 
 //randomize the list of pairs
 function pairUp() {
-    var pairs = [];
+    pairs = [];
     Member.find(function (err, people) {
         if (err) {
             //return reply(Boom.wrap(err, 'Internal MongoDB error'));
@@ -83,16 +84,21 @@ function shuffle(array) {
 //send emails to each user on who their pair is
 exports.emailMembers = {
     handler: function (request, reply) {
+        console.log('Email Members');
         //loop through each pair
         var pairsEmailed = [];
         for (i = 0; i < pairs.length; i++) {
+            console.log(pairs[i]);
             //send each pair an individual email indicating who their other pair is
+            var email = pairs[i].member1.memberEmail + ',' + pairs[i].member2.memberEmail;
+
             var message = Config.email.body 
                 + pairs[i].member1.memberName + ' ' + pairs[i].member1.memberEmail + ' & ' 
                 + pairs[i].member2.memberName + ' ' + pairs[i].member2.memberEmail;
-            var email = pairs[i].member1.memberEmail +',' +pairs[i].member2.memberEmail;
+            
             Common.mail(Config.email.sender, email, Config.email.subject, message);
             pairsEmailed.push(message);
+            console.log('Pair' + i + ' ' + message);
         }
         reply(pairsEmailed);
     }

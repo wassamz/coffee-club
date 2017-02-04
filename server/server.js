@@ -2,8 +2,7 @@
 var Hapi = require('hapi'),
     Db = require('./config/db'),
     Moment = require('moment'),
-    Config = require('./config/config'),
-    Common = require('./controller/common');
+    Config = require('./config/config');
 
 var User = require('./controller/user');
 var PairUp = require('./controller/pair-up');
@@ -61,9 +60,5 @@ server.start((err) => {
         throw err;
     }
     console.log('Server started ', server.info.uri);
+    console.log('Proxy:'+process.env.http_proxy);
 });
-
-
-//PairUp.pairAndEmail();
-console.log('Proxy:'+process.env.http_proxy);
-//Common.mail("wassam@gmail.com", "wassam.zahreddine@scotiabank.com" , "Coffee Club", "Welcome to the club");
