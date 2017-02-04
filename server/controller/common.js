@@ -7,8 +7,8 @@ var nodemailer = require("nodemailer"),
 
 var privateKey = Config.key.privateKey;
 
+// set up the Gmail token generator
 var generator = require('xoauth2').createXOAuth2Generator({
-
     user: 'wassam@gmail.com',
     clientId: '117758495387-qfu1jhf4hl1aqum1v8321p3o66u1594l.apps.googleusercontent.com',
     clientSecret: '8fIwgK7fmnd6aY8cD4s5qc8j',
@@ -20,7 +20,7 @@ generator.on('token', function(token){
     console.log('New token for %s: %s', token.user, token.accessToken);
 });
 
-// login
+// create reusable transport method
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -28,45 +28,6 @@ var transporter = nodemailer.createTransport({
     }   
 });
 
-// create reusable transport method (opens pool of SMTP connections)
-/*let transporter = nodemailer.createTransport({
-    sendmail: true,
-    newline: 'unix',
-    path: '/usr/sbin/sendmail'
-});*/
-
-
-/*let transporter = nodemailer.createTransport(smtpTransport({
-    service: "Hotmail",
-    proxy: process.env.http_proxy,
-    auth: {
-        user: "wassamz@hotmail.com",
-        pass: "boston2$"
-    }
-}));*/
-
-
-
-/*var transporter = nodemailer.createTransport({
-        service:"Gmail",
-        //proxy: process.env.http_proxy,
-        auth: {
-            type: 'OAuth2',
-            ,
-            accessToken: 'ya29.GlvnAwk3_KI4SthPfU1tEHQUCd9gFty3I5qynX05us5aWIPlu-N1Lq94VnZ8dk5XgWj7UMON8rSHUE3hprD3Zmlaw_WCi-BrJXEPrF6QGSJbLeRjW0sJWiG-kgAy',
-            expires: 1484314697598
-        }
-    });*/
-
-/*console.log(Config.email.username+"  "+Config.email.password);
-var smtpTransport = nodemailer.createTransport("SMTP", {
-    service: "Gmail",
-    auth: {
-        user: Config.email.username,
-        pass: Config.email.password
-    }
-});
-*/
 // verify connection configuration
 transporter.verify(function(error, success) {
    if (error) {
@@ -119,13 +80,6 @@ exports.mail = function (sender, email, subject, mailbody) {
         subject: subject, // Subject line
         text: mailbody // plaintext body
         //html: mailbody,  // html body
-        /*auth: {
-            user: 'wassam@gmail.com',
-            refreshToken: '1/IV1_-Zbq-Kxu2R0Qs0iZ65Wa4UEu7H08nuOGdl0KHC151JWnI0DTCps2w_MiUTUG',
-            accessToken: 'ya29.GlvnAwnPYeZY8UMPvhwjeg2B61LjpE-BhuPq64z6Wk_aKZLWVI6HxIi6Q_KKIOIwXnKwUXh7SnKVZBRilY6ntgQEvaXuYTfvXBFPkqTWhyjH6FDDkVH0_aF4QhSM',
-            expires: 1484314697598
- 
-        }*/
     };
 
     console.log('Sending Mail');
