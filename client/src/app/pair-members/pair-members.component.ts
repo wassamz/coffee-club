@@ -22,4 +22,8 @@ export class PairMembersComponent implements OnInit {
   pairMembers() {
     this.peopleService.pairMembers();
   }
+
+  emailMembers() {
+    this.peopleService.emailMembers();
+  }
 }

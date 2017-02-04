@@ -12,7 +12,10 @@ exports.create = {
     handler: function (request, reply) {
         Member.createMember(request.payload, function (err, member) {
             if (!err) {
-                reply("SUCCESS: Member Saved");
+                //reply("SUCCESS: Member Saved");
+                Member.getMembers(request, function (err, members) {
+                    reply(members);
+                })
             } else {
                 reply(Boom.forbidden(err)); // HTTP 403
             }
@@ -30,7 +33,10 @@ exports.remove = {
 
         Member.removeMember(request.payload, function (err, member) {
             if (!err) {
-                reply("SUCCESS: Member Removed");
+                //reply("SUCCESS: Member Removed");
+                Member.getMembers(request, function (err, members) {
+                    reply(members);
+                })
             } else {
                 reply(Boom.forbidden(err)); // HTTP 403
             }
@@ -50,7 +56,10 @@ exports.update = {
 
         Member.updateMember(request.payload, function (err, member) {
             if (!err) {
-                reply("SUCCESS: Member Updated");
+                //reply("SUCCESS: Member Updated");
+                Member.getMembers(request, function (err, members) {
+                    reply(members);
+                })
             } else {
                 reply(Boom.forbidden(err)); // HTTP 403
             }

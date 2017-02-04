@@ -16,9 +16,13 @@ module.exports = {
         tokenExpiry: 1 * 30 * 1000 * 60 //1 hour
     },
     email: {
-        username: "test@test.com",
-        password: "password",
-        accountName: "Cronj",
-        verifyEmailUrl: "verifyEmail"
+        username: "wassam@gmail.com",
+        password: "$",
+        accountName: "Wassam",
+        verifyEmailUrl: "verifyEmail",
+
+        sender: 'Coffee Club <wassam@gmail.com>',
+        subject: 'Your Coffee Club buddy for this week',
+        body: 'Schedule time for coffee between '
     }
 };

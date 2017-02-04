@@ -94,6 +94,12 @@ export class PeopleService {
         }, error => console.log('Could not load members.'));
         this.pushChanges();
     }
+   
+    emailMembers() {
+        this.http.post(`${this.baseUrl}/emailMembers`, null).map(response => response.json()).subscribe(data => {
+            console.log('emailMembers():: ' + data);
+        }, error => console.log('Could not load members.'));
+    }
 
     pushChanges() {
         this._people.next(Object.assign({}, this.dataStore).people);

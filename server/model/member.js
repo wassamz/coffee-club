@@ -75,7 +75,7 @@ Member.statics.updateMember = function (requestData, callback) {
 };
 
 Member.statics.getMembers = function (members, callback) {
-    this.find({}, callback);
+    this.find({},{"__v":0}, callback);//return all fields except __v
 };
 
 var member = mongoose.model('member', Member);
