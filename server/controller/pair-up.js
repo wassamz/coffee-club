@@ -26,7 +26,7 @@ exports.pairMembers = {
             }
             console.log('preparing reply=' + JSON.stringify(pairs));
             reply(pairs);
-        })
+        });
 
     }
 };
@@ -58,7 +58,7 @@ function pairUp() {
         }
         console.log('preparing reply=' + JSON.stringify(pairs));
 
-    })
+    });
     return pairs;
 }
 
@@ -102,4 +102,4 @@ exports.emailMembers = {
         }
         reply(pairsEmailed);
     }
-}
+};

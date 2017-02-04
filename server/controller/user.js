@@ -146,8 +146,8 @@ exports.verifyEmail = {
                     }
                     return reply("account sucessfully verified");
 
-                })
-            })
+                });
+            });
             
         });
     }

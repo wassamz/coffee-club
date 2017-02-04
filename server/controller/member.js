@@ -15,7 +15,7 @@ exports.create = {
                 //reply("SUCCESS: Member Saved");
                 Member.getMembers(request, function (err, members) {
                     reply(members);
-                })
+                });
             } else {
                 reply(Boom.forbidden(err)); // HTTP 403
             }
@@ -36,7 +36,7 @@ exports.remove = {
                 //reply("SUCCESS: Member Removed");
                 Member.getMembers(request, function (err, members) {
                     reply(members);
-                })
+                });
             } else {
                 reply(Boom.forbidden(err)); // HTTP 403
             }
@@ -59,7 +59,7 @@ exports.update = {
                 //reply("SUCCESS: Member Updated");
                 Member.getMembers(request, function (err, members) {
                     reply(members);
-                })
+                });
             } else {
                 reply(Boom.forbidden(err)); // HTTP 403
             }
@@ -72,7 +72,7 @@ exports.list = {
         Member.getMembers(request, function (err, members) {
             console.log("controller::" + members);
             reply(members);
-        })
+        });
 
     }
 };

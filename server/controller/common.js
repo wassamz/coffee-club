@@ -85,13 +85,13 @@ exports.encrypt = function(password) {
 
 exports.sentMailVerificationLink = function(user,token) {
     var from = Config.email.accountName+" Team<" + Config.email.username + ">";
-    var mailbody = "<p>Thanks for Registering on "+Config.email.accountName+" </p><p>Please verify your email by clicking on the verification link below.<br/><a href='http://"+Config.server.host+":"+ Config.server.port+"/"+Config.email.verifyEmailUrl+"/"+token+"'>Verification Link</a></p>"
+    var mailbody = "<p>Thanks for Registering on "+Config.email.accountName+" </p><p>Please verify your email by clicking on the verification link below.<br/><a href='http://"+Config.server.host+":"+ Config.server.port+"/"+Config.email.verifyEmailUrl+"/"+token+"'>Verification Link</a></p>";
     mail(from, user.userName , "Account Verification", mailbody);
 };
 
 exports.sentMailForgotPassword = function(user) {
     var from = Config.email.accountName+" Team<" + Config.email.username + ">";
-    var mailbody = "<p>Your "+Config.email.accountName+"  Account Credential</p><p>username : "+user.userName+" , password : "+decrypt(user.password)+"</p>"
+    var mailbody = "<p>Your "+Config.email.accountName+"  Account Credential</p><p>username : "+user.userName+" , password : "+decrypt(user.password)+"</p>";
     mail(from, user.userName , "Account password", mailbody);
 };
 
@@ -140,4 +140,4 @@ exports.mail = function (sender, email, subject, mailbody) {
         transporter.close();
     });
 
-}
+};

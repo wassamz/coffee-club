@@ -70,8 +70,8 @@ Member.statics.updateMember = function (requestData, callback) {
         {
             memberName: requestData.newMemberName,
             memberEmail: requestData.newMemberEmail
-        }
-        , callback);
+        }, 
+        callback);
 };
 
 Member.statics.getMembers = function (members, callback) {
