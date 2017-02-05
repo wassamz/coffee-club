@@ -16,12 +16,15 @@ module.exports = {
         tokenExpiry: 1 * 30 * 1000 * 60 //1 hour
     },
     email: {
-        username: "wassam@gmail.com",
-        password: "$",
-        accountName: "Wassam",
+        username: 'dfcoffeeclub@gmail.com',
+        clientId: '760946986003-2e93kcoiot8pa54tc5uo8923a07r9k2g.apps.googleusercontent.com',
+        clientSecret: 'tPCIZFiN_GpEZ64WtE63ZoOX',
+        refreshToken: '1/6d2W8QllSZa71AlXbnFhaod89lxV0yuLOeCF2j5throBEP8DlpBEoD_fyQS084NK',
+
+        accountName: "Coffee Club",
         verifyEmailUrl: "verifyEmail",
 
-        sender: 'Coffee Club <wassam@gmail.com>',
+        sender: this.accountName + ' <' + this.username + '>',
         subject: 'Your Coffee Club buddy for this week',
         body: 'Schedule time for coffee between '
     }

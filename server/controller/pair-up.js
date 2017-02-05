@@ -9,7 +9,7 @@ var pairs = [];
 
 exports.pairMembers = {
     handler: function (request, reply) {
-
+        pairs = [];
         Member.find(function (err, people) {
             if (err) {
                 console.log(Boom.wrap(err, 'Internal MongoDB error'));
@@ -19,7 +19,7 @@ exports.pairMembers = {
             console.log(people);
 
             let half = Math.floor(people.length / 2);
-
+            console.log('\nPAIR\n--------');
             for (i = 0; i < half; i++) {
                 console.log(people[i] + '<>' + people[half + i]);
                 pairs.push(pariedMember = { member1: people[i], member2: people[half + i] });
@@ -35,32 +35,6 @@ exports.pairAndEmail =
         pairUp();
         emailMembers();
     };
-
-//randomize the list of pairs
-function pairUp() {
-    pairs = [];
-    Member.find(function (err, people) {
-        if (err) {
-            //return reply(Boom.wrap(err, 'Internal MongoDB error'));
-            console.log(Boom.wrap(err, 'Internal MongoDB error'));
-        }
-        /*console.log('\nCURRENT\n--------');
-        console.log(people);
-        people = shuffle(people);
-        console.log('\SHUFFLE\n--------');
-        console.log(people);
-        console.log('\PAIR\n--------');*/
-        let half = Math.floor(people.length / 2);
-        
-        for (i = 0; i < half; i++) {
-            console.log(people[i] + '<>' + people[half + i]);
-            pairs.push(pariedMember = { member1: people[i], member2: people[half + i] });
-        }
-        console.log('preparing reply=' + JSON.stringify(pairs));
-
-    });
-    return pairs;
-}
 
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;

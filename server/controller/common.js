@@ -9,10 +9,10 @@ var privateKey = Config.key.privateKey;
 
 // set up the Gmail token generator
 var generator = require('xoauth2').createXOAuth2Generator({
-    user: 'wassam@gmail.com',
-    clientId: '117758495387-qfu1jhf4hl1aqum1v8321p3o66u1594l.apps.googleusercontent.com',
-    clientSecret: '8fIwgK7fmnd6aY8cD4s5qc8j',
-    refreshToken: '1/IV1_-Zbq-Kxu2R0Qs0iZ65Wa4UEu7H08nuOGdl0KHC151JWnI0DTCps2w_MiUTUG'
+    user: Config.email.username,
+    clientId: Config.email.clientId,
+    clientSecret: Config.email.clientSecret,
+    refreshToken: Config.email.refreshToken
 });
 
 // listen for token updates
@@ -28,14 +28,15 @@ var transporter = nodemailer.createTransport({
     }   
 });
 
-// verify connection configuration
+// verify Email Server connection configuration
 transporter.verify(function(error, success) {
    if (error) {
-        console.log('ERROR: ' + error);
+        console.log('Email Server '+ error);
    } else {
-        console.log('Server is ready to take our messages');
+        console.log('Email Server is ready to take our messages');
    }
 });
+
 exports.decrypt = function(password) {
     return decrypt(password);
 };
