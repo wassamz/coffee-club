@@ -20,7 +20,7 @@ var ttl = app.config.key.tokenExpiry;
 
 
 var server = new Hapi.Server();
-//server.connection({ port: app.config.server.port });
+
 server.connection({ host: 'localhost', port: app.config.server.port, routes: { cors: true } });
 // Validate function to be injected 
 var validate = function (token, callback) {

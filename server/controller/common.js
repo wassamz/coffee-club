@@ -22,7 +22,8 @@ generator.on('token', function(token){
 
 // create reusable transport method
 var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: Config.email.service,
+    proxy: Config.email.proxy,
     auth: {
         xoauth2: generator
     }   

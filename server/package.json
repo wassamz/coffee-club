@@ -16,7 +16,8 @@
     "moment": "^2.9.0",
     "mongoose": "4.7.x",
     "mongoose-auto-increment": "^5.0.1",
-    "nodemailer": "^2.7.0"
+    "nodemailer": "^2.7.0",
+    "oauth2": "0.0.1"
   },
   "keywords": [
     "node.js",
