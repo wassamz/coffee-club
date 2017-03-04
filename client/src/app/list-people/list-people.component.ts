@@ -24,7 +24,7 @@ export class ListPeopleComponent implements OnInit {
   }
   updatePerson(person: Person) {
     console.log('Update person: ' + person.memberName + ' id:' + person._id);
-    this.people = this.peopleService.people;;
+    this.people = this.peopleService.people;
     this.peopleService.updatePerson(person);
   }
   removePerson(person: Person) {

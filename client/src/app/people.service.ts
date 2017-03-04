@@ -25,10 +25,10 @@ export class PeopleService {
     constructor(private http: Http) {
         this.baseUrl = 'http://localhost:8000';
         this.dataStore = { people: [], pairings: [] };
-        
+
         this._people = <BehaviorSubject<Person[]>>new BehaviorSubject([]);
         this.people = this._people.asObservable();
-        
+
         this._pairings = <BehaviorSubject<MemberPair[]>>new BehaviorSubject([]);
         this.pairings = this._pairings.asObservable();
 
@@ -94,7 +94,7 @@ export class PeopleService {
         }, error => console.log('Could not load members.'));
         this.pushChanges();
     }
-   
+
     emailMembers() {
         this.http.post(`${this.baseUrl}/emailMembers`, null).map(response => response.json()).subscribe(data => {
             console.log('emailMembers():: ' + data);
