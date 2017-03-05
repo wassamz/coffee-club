@@ -4,8 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/map';
 
-import { Person } from './Person.model';
-import { MemberPair } from './MemberPair.model';
+import { Person } from './person.model';
+import { MemberPair } from './memberpair.model';
 
 
 @Injectable()
@@ -23,7 +23,8 @@ export class PeopleService {
     };
 
     constructor(private http: Http) {
-        this.baseUrl = 'http://localhost:8000';
+        
+        this.baseUrl = 'http://ccserver:8000';
         this.dataStore = { people: [], pairings: [] };
 
         this._people = <BehaviorSubject<Person[]>>new BehaviorSubject([]);
