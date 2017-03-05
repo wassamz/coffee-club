@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { PeopleService } from '../people.service';
-import { MemberPair } from '../MemberPair.model';
+import { MemberPair } from '../memberpair.model';
 
 @Component({
   selector: 'app-pair-members',
