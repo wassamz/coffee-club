@@ -5,7 +5,7 @@ module.exports = {
             port: 8000
     },
     database: {
-        host: '127.0.0.1',
+        host: 'ccdb',
         port: 27017,
         db: 'coffee-club',
         username: 'admin',
@@ -21,7 +21,7 @@ module.exports = {
         clientId: 'clientid',
         clientSecret: 'secret',
         refreshToken: 'token',
-        
+
         proxy: process.env.http_proxy,
         accountName: "Coffee Club",
         verifyEmailUrl: "verifyEmail",
