@@ -17,7 +17,7 @@
     "mongoose": "4.7.x",
     "mongoose-auto-increment": "^5.0.1",
     "nodemailer": "^2.7.0",
-    "oauth2": "0.0.1"
+    "xoauth2": "^1.2.0"
   },
   "keywords": [
     "node.js",
